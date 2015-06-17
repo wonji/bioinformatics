@@ -9,17 +9,18 @@ def Matrix(matrix):
     sub=1
     copy=0
 
-def grade(a, b):
+def grade(a,b):
     if a==b:
         return copy
     else:
         return sub
     
-def score(a,b,s):
+def score(a,b):
     m=len(a)+1   # length of sequence 1
     n=len(b)+1   # length of sequence 2 
     tb=Matrix((m,n))
     s=tb
+
     for i in range(1,n):            #set the first row and first column 
         s[0][i]=s[0][i-1]+1
     for j in range(1,m):
@@ -31,6 +32,6 @@ def score(a,b,s):
             s2=s[i][j-1]+indel      #score from left
             s3=s[i-1][j]+indel      #score from up
             s[i][j]=min(s1,s2,s3)
-            return s
+    return s 
 
 
