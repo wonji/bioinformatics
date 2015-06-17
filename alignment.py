@@ -43,9 +43,9 @@ class EditDistance(object):
   self.seq1=seq1
   self.seq2=seq2
  def Matrix(self, matrix):
-  mat=[[0 for x in range(matrix[0])] for x in range(matrix[1])]
-  mat[0] = [x for x in range(matrix[0])] 
-  for i in range(matrix[1]-1):
+  mat=[[0 for x in range(matrix[1])] for x in range(matrix[0])]
+  mat[0] = [x for x in range(matrix[1])] 
+  for i in range(matrix[0]-1):
    mat[i+1][0] = i+1
   return mat
  def grade(self, a, b):
@@ -65,4 +65,10 @@ class EditDistance(object):
   for i in range(self.row):
    for j in range(self.col):
     self.mat[i+1][j+1] = self.score(self.seq1[i],self.seq2[j],i+1,j+1,self.mat)
-  return self.mat
+  return self.mat[self.row][self.col]
+ def getMatrix(self):
+  self.mat
+
+
+
+
