@@ -41,24 +41,40 @@ class EditDistance(object):
   for line in self.__mat: self.result.append(str(line))
   self.result.extend([' ','Minimum Distance :'+' '+str(self.calDistance())])
   print '\n'.join(self.result)
- def traceTool(self,i,j):
-  if i==0 and j==0: return ''
-  elif i==0:
-   return 'i'+self.traceTool(i,j-1)
-  elif j==0:
-   return 'd'+self.traceTool(i-1,j)
-  state=self.__mat[i][j]
-  diag=self.__mat[i-1][j-1]
-  left=self.__mat[i][j-1]
-  up=self.__mat[i-1][j]
-  if state==left+1:
-   return 'i'+self.traceTool(i,j-1)
-  if state==up+1:
-   return 'd'+self.traceTool(i-1,j)
-  if state==diag+1:
-   return 's'+self.traceTool(i-1,j-1)
-  if state==diag and self.__seq1[i-1]==self.__seq2[j-1]:
-   return 'c'+self.traceTool(i-1,j-1)
- def backTrace(self):
-  return self.traceTool(len(self.__seq1),len(self.__seq1))
 
+
+wonji = EditDistance("GCTGA","GGGTGA")
+wonji.calDistance()
+wonji.showResult()
+
+i,j=m-1,n-1
+oo=''
+
+def backtrack(s):
+    s1=s[i-1][j-1]  #diagonal 0 
+    s2=s[i][j-1]    #left 1
+    s3=s[i-1][j]    #up 2
+    mi=min(s1,s2,s3)
+    
+    if s1==mi:
+        oo+='0'
+        i-=1
+        j-=1
+    elif s2==mi:
+        oo+='1'
+        j-=1
+    else:
+        oo+='2'
+        i-=1
+
+    ss=[]
+    for ii in range(i+1):        #extract submatrix
+        sss=s[0:i+1][ii][0:j+1]
+        ss.append(sss)
+        
+    s=ss
+
+    if s==[]:
+        return oo
+    else: 
+        return backtrack(s)
