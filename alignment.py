@@ -55,5 +55,3 @@ def score(a,b,s):
   s3=s[i-1][j]+indel
   s[i][j]=min(s1,s2,s3)
   return s 
-=======
->>>>>>> 5f5ae7fa88a0fdd2c4562a802927d70a732b4463
