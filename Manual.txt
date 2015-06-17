@@ -74,7 +74,19 @@ calDistance()를 통해 계산한 Edit Distance Matrix를 출력합니다.
 > example.getMatrix() : calDistance()를 통해 계산한 Edit Distance Matrix를 출력. list 형태의 원소를 가진 list이며 각 원소의 list는 matrix의 행을 의미.
 
 
-2.5 Summary 출력하기
+2.5 Alignment 추적하기
+backTrace()를 통해 minimum edit distance를 갖는 mutation을 추적합니다.
+
+######################################################
+>>> example.backTrace()
+['csiccc', 'GC-TGA', 'GGGTGA']
+######################################################
+> component1 : 각 locus별 mutation status. 'c'='copy', 's'='substitution', 'i'='insertion', 'd'='deletion'을 의미
+> component1 : line1에 해당하는 reference seqeunce를 출력. 이때, insertion에 해당하는 locus는 '-'로 표시되고, deletion에 해당하는 locus는 삭제되어 표시됨.
+> component1 : alignment sequence.
+
+
+2.6 Summary 출력하기
 
 ######################################################
 >>> example.showResult()
