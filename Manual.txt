@@ -1,0 +1,20 @@
+
+##############################################
+######### Class EditDistance Manual ##########
+##############################################
+
+1. Input
+Class EditDistance는 다음과 같은 명령어로 사용할 수 있습니다.
+###
+Instance = EditDistance(seq1,seq2)
+###
+
+Instance : class에서 사용할 인스턴스의 이름
+seq1 : sequence of reference data. 네개의 염기(A,C,G,T)로 이루어져 있는 문자열. 대문자만 허용가능.
+seq2 : sequence for alignment. 네개의 염기(A,C,G,T)로 이루어져 있는 문자열. 대문자만 허용가능.
+
+
+
+wonji = EditDistance("GCTGA","GGGTGA") 
+wonji.calDistance()
+wonji.showResult()
