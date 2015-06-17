@@ -51,7 +51,7 @@ class EditDistance(object):
       self.__mutation=self.backTrace()
       for line in self.__mat: self.result.append(str(line))
       self.result.extend([' ','### Minimum Distance :'+' '+str(self.calDistance()),' ','### Alignment Result ###'])
-    self.result.extend(self.__mutation)
+      self.result.extend(self.__mutation)
       print '\n'.join(self.result)
 
    def traceTool(self,i,j):
@@ -96,7 +96,7 @@ class EditDistance(object):
 
 
 
-   wonji = EditDistance("GCTGA","GGGTGA") 
-   wonji.calDistance()
-   wonji.backTrace()
-   wonji.showResult()
+   homework = EditDistance("GCTGA","GGGTGA") 
+   homework.calDistance()
+   homework.backTrace()
+   homework.showResult()
