@@ -102,4 +102,4 @@ Edit Distance Matrix
 Minimum Distance : 3
 ######################################################
 
-> example.showResult() : Edit distance matrix와 minimum distance를 출력.
+> example.showResult() : Edit distance matrix와 minimum distance를 출력. 
