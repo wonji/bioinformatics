@@ -94,16 +94,9 @@ class EditDistance(object):
          return [status,ref,align]
     
 
+############# Example ################
 
-
-<<<<<<< HEAD
    example = EditDistance("GCTGA","GGGTGA") 
    example.calDistance()
    example.backTrace()
    example.showResult()
-=======
-   homework = EditDistance("GCTGA","GGGTGA") 
-   homework.calDistance()
-   homework.backTrace()
-   homework.showResult()
->>>>>>> 348e21dd47a52d98f61982d19159dfbca6a9c4b2
