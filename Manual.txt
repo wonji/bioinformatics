@@ -4,17 +4,90 @@
 ##############################################
 
 1. Input
+
 Class EditDistance는 다음과 같은 명령어로 사용할 수 있습니다.
-###
-Instance = EditDistance(seq1,seq2)
-###
 
-Instance : class에서 사용할 인스턴스의 이름
-seq1 : sequence of reference data. 네개의 염기(A,C,G,T)로 이루어져 있는 문자열. 대문자만 허용가능.
-seq2 : sequence for alignment. 네개의 염기(A,C,G,T)로 이루어져 있는 문자열. 대문자만 허용가능.
+######################################################
+>>> Instance = EditDistance(seq1,seq2)
+######################################################
+
+> Instance : class에서 사용할 인스턴스의 이름
+> seq1 : sequence of reference data. 네개의 염기(A,C,G,T)로 이루어져 있는 문자열. 대문자만 허용가능.
+> seq2 : sequence for alignment. 네개의 염기(A,C,G,T)로 이루어져 있는 문자열. 대문자만 허용가능.
 
 
+2. Functions & Values
 
-wonji = EditDistance("GCTGA","GGGTGA") 
-wonji.calDistance()
-wonji.showResult()
+다음의 예를 통해서 설명하도록 하겠습니다.
+
+######################################################
+>>> example = EditDistance('GCTGA','GGGTGA')
+######################################################
+
+2.1 Sequence 불러오기
+EditDistance는 OOP로 class함수만을 통해서 sequence를 불러올 수 있습니다.
+
+######################################################
+>>> example.getSeq1()
+'GCTGA'
+>>> example.getSeq2()
+'GGGTGA'
+######################################################
+
+> example.getSeq1() : reference seqeunce를 출력.
+> example.getSeq2() : alignment seqeunce를 출력.
+
+
+2.2 Sequence 수정하기
+EditDistance는 OOP로 class함수만을 통해서 sequence를 수정할 수 있습니다.
+
+######################################################
+>>> example.setSeq1('GCTGAA')
+>>> example.getSeq1()
+'GCTGAA'
+>>> example.setSeq2('GGGTGAC')
+>>> example.getSeq2()
+'GGGTGAC'
+######################################################
+
+> example.setSeq1(new_seq1) : reference sequence를 new_seq1으로 수정. new_seq1은 네개의 염기(A,C,G,T)로 이루어져 있는 문자열.
+> example.setSeq1(new_seq2) : alignment sequence를 new_seq2으로 수정. new_seq2은 네개의 염기(A,C,G,T)로 이루어져 있는 문자열.
+
+
+2.3 Minimum Edit Distance 계산하기
+calDistance() 라는 class함수를 통해 minimum edit distance를 구할 수 있습니다.
+
+######################################################
+>>> example.calDistance()
+3
+######################################################
+
+
+2.4 Edit Distance Matrix 출력하기
+calDistance()를 통해 계산한 Edit Distance Matrix를 출력합니다.
+
+######################################################
+>>> example.getMatrix()
+[[0, 1, 2, 3, 4, 5, 6, 7], [1, 0, 1, 2, 3, 4, 5, 6], [2, 1, 1, 2, 3, 4, 5, 5], [3, 2, 2, 2, 2, 3, 4, 5], [4, 3, 2, 2, 3, 2, 3, 4], [5, 4, 3, 3, 3, 3, 2, 3], [6, 5, 4, 4, 4, 4, 3, 3]]
+######################################################
+
+> example.getMatrix() : calDistance()를 통해 계산한 Edit Distance Matrix를 출력. list 형태의 원소를 가진 list이며 각 원소의 list는 matrix의 행을 의미.
+
+
+2.5 Summary 출력하기
+
+######################################################
+>>> example.showResult()
+Edit Distance Matrix
+[0, 1, 2, 3, 4, 5, 6, 7]
+[1, 0, 1, 2, 3, 4, 5, 6]
+[2, 1, 1, 2, 3, 4, 5, 5]
+[3, 2, 2, 2, 2, 3, 4, 5]
+[4, 3, 2, 2, 3, 2, 3, 4]
+[5, 4, 3, 3, 3, 3, 2, 3]
+[6, 5, 4, 4, 4, 4, 3, 3]
+ 
+Minimum Distance : 3
+######################################################
+
+> example.showResult() : Edit distance matrix와 minimum distance를 출력.
