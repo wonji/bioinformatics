@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 class EditDistance(object):
  def getSeq1(self):
   return self.__seq1
@@ -43,6 +44,8 @@ class EditDistance(object):
   self.result.extend([' ','Minimum Distance :'+' '+str(self.calDistance())])
   print '\n'.join(self.result)
 =======
+=======
+>>>>>>> f81d8ba3861f618b39f36ccc2947a369dcd6c1c5
 seq1=raw_input("Enter the first sequence: ")
 seq2=raw_input("Enter the second sequence: ")
 
@@ -63,13 +66,26 @@ def grade(a,b):
 def score(a,b):
     m=len(a)+1   # length of sequence 1
     n=len(b)+1   # length of sequence 2 
+<<<<<<< HEAD
     tb=Matrix((m,n))
     s=tb
+=======
+    s=Matrix((m,n))
+    arrow=Matrix((m,n))
+>>>>>>> f81d8ba3861f618b39f36ccc2947a369dcd6c1c5
 
     for i in range(1,n):            #set the first row and first column 
         s[0][i]=s[0][i-1]+1
     for j in range(1,m):
         s[j][0]=s[j-1][0]+1
+<<<<<<< HEAD
+=======
+
+    for i in range(1,n):
+        a
+
+
+>>>>>>> f81d8ba3861f618b39f36ccc2947a369dcd6c1c5
     
     for i in range(1,m):
         for j in range(1,n):
@@ -77,6 +93,7 @@ def score(a,b):
             s2=s[i][j-1]+indel      #score from left
             s3=s[i-1][j]+indel      #score from up
             s[i][j]=min(s1,s2,s3)
+<<<<<<< HEAD
     return s 
 >>>>>>> 307ffb986ae447093528be44df133d2b22c50cf2
 
@@ -84,3 +101,47 @@ def score(a,b):
 wonji = EditDistance("GCTGA","GGGTGA")
 wonji.calDistance()
 wonji.showResult()
+=======
+    return s
+
+
+
+i,j=m-1,n-1
+oo=''
+
+def backtrack(s):
+    s1=s[i-1][j-1]  #diagonal 0 
+    s2=s[i][j-1]    #left 1
+    s3=s[i-1][j]    #up 2
+    mi=min(s1,s2,s3)
+    
+    if s1==mi:
+        oo+='0'
+        i-=1
+        j-=1
+    elif s2==mi:
+        oo+='1'
+        j-=1
+    else:
+        oo+='2'
+        i-=1
+
+    ss=[]
+    for ii in range(i+1):        #extract submatrix
+        sss=s[0:i+1][ii][0:j+1]
+        ss.append(sss)
+        
+    s=ss
+
+    if s==[]:
+        return oo
+    else: 
+        return backtrack(s)
+
+
+
+
+
+
+
+>>>>>>> f81d8ba3861f618b39f36ccc2947a369dcd6c1c5
