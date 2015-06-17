@@ -60,5 +60,5 @@ class EditDistance(object):
   if state==diag and self.__seq1[i-1]==self.__seq2[j-1]:
    return 'c'+self.traceTool(i-1,j-1)
  def backTrace(self):
-  return self.traceTool(len(self.__seq1),len(self.__seq1))
+  return self.traceTool(len(self.__seq1),len(self.__seq2))
 
